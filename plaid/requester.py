@@ -14,7 +14,7 @@ def http_request(url, method=None, data=None, suppress_errors=False):
     response = _base_http_request(url, method, data or {})
     ERROR = PLAID_ERROR_MAP.get(response.status_code)
     if not suppress_errors and ERROR is not None:
-        json_data = json.loads(response.content)
+        json_data = json.loads(response.content.decode('utf-8'))
         raise ERROR(json_data['resolve'], json_data['code'])
     else:
         return response

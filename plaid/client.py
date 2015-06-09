@@ -61,7 +61,7 @@ def store_access_token(func):
     def inner_func(self, *args, **kwargs):
         response = func(self, *args, **kwargs)
         if response.ok:
-            json_data = json.loads(response.content)
+            json_data = json.loads(response.content.decode('utf-8'))#my chang
             self.access_token = json_data.get(
                 'access_token',
                 self.access_token
