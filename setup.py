@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
-import plaid
 
+import plaid
 
 url = 'https://github.com/plaid/plaid-python'
 
@@ -17,7 +17,7 @@ setup(
     license='MIT',
     packages=find_packages(exclude='tests'),
     package_data={'README': ['README.md']},
-    install_requires=['requests==2.2.1'],
+    install_requires=['requests==2.7.0'],
     zip_safe=False,
     include_package_data=True,
     classifiers=[
